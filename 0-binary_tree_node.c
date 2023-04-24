@@ -5,7 +5,7 @@
  * binary_tree_node - creates binary tree node
  * @parent : pointer
  * @value : value of node
- * Return: address of created node
+ * Return: created node
  */
 
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
@@ -14,6 +14,7 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 
 	if (node ==  NULL)/*if malloc failed*/
 		return (NULL);
+
 
 	node->parent = parent;
 	node->n = value;
