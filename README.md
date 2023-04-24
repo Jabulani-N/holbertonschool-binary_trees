@@ -18,3 +18,13 @@ This structure is in practice, a triply linked list.
 * the one "previous" is called the `parent`
 
 * the two "next" can be called `left` and `right`
+
+# Task1:
+
+## Potential  Pitfalls:
+
+when inserting a node, besure to change the parent of the node that got shoved down.
+
+* `double free or corruption (out)` is a potential error you'll get when running if you don't.
+
+
