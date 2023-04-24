@@ -1,6 +1,6 @@
 
-#ifndef _BINARY_H
-#define _BINARY_H
+#ifndef binary_trees_H
+#define binary_trees_H
 
 /**
  * struct binary_tree_s - Binary tree node
