@@ -1,5 +1,4 @@
 #include "binary_trees.h"
-#include "0-binary_tree_node.c"
 
 /**
  * binary_tree_insert_left - recieves a parent node
@@ -19,10 +18,11 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 	binary_tree_t *newNode = binary_tree_node(parent, value);
 	/*node created*/
 
-	if (newNode == NULL) /*if malloc within node creation failed*/
+	if (!(newNode)) /*if malloc within node creation failed*/
 		return (NULL);
 
-	newNode->left = parent->left;/*if parent->left = NULL, this is still correct*/
+	if (parent->left)
+		newNode->left = parent->left;/*if parent->left = NULL, this is still correct*/
 	/*if there is a segmentation fault, protect this within `if(parent->left)`*/
 	parent->left = newNode;
 	return (newNode);
