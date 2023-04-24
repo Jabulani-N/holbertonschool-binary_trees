@@ -13,7 +13,7 @@ The tallest tree catches the most wind
 (-09)     (-07)
 ```
 
-This structure is in practice, a triply linked list. 
+This structure is in practice, a triply linked list.
 
 * the one "previous" is called the `parent`
 
