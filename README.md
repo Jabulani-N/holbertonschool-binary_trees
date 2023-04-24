@@ -23,7 +23,7 @@ This structure is in practice, a triply linked list.
 
 ## Potential  Pitfalls:
 
-when inserting a node, besure to change the parent of the node that got shoved down.
+when inserting a node, be sure to **change the parent of the node** that got shoved down.
 
 * `double free or corruption (out)` is a potential error you'll get when running if you don't.
 

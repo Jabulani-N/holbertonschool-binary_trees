@@ -2,7 +2,7 @@
 
 /**
  * binary_tree_insert_left - recieves a parent node
- * 	creates a new node
+ *	creates a new node
  * @parent: this will me the node's parent. it's ->left will be the new node
  * @value: the ->n of the newly created node
  * Return: newly created node
@@ -19,7 +19,7 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 	/*node created*/
 
 	if (!parent)/*quit if parent is null*/
-		return(NULL);
+		return (NULL);
 	newNode = binary_tree_node(parent, value);
 
 	if (!(newNode)) /*if malloc within node creation failed*/
@@ -27,8 +27,8 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 
 	if (parent->left)
 	{
-		newNode->left = parent->left;/*if parent->left = NULL, this is still correct*/
-		(newNode->left)->parent = newNode;/*so the left node knows who sent it. very important*/
+		newNode->left = parent->left; /*if parent->left = NULL, is still correct*/
+		(newNode->left)->parent = newNode; /*very important*/
 	}
 	parent->left = newNode;
 	return (newNode);
