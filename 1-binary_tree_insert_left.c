@@ -26,8 +26,10 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
 		return (NULL);
 
 	if (parent->left)
+	{
 		newNode->left = parent->left;/*if parent->left = NULL, this is still correct*/
-	/*if there is a segmentation fault, protect this within `if(parent->left)`*/
+		(newNode->left)->parent = newNode;/*so the left node knows who sent it. very important*/
+	}
 	parent->left = newNode;
 	return (newNode);
 }
