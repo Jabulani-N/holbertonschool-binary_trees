@@ -3,7 +3,7 @@
 
 /**
  * binary_tree_delete - deletes binary tree
- * @parent : pointer
+ * @tree : deforestation victim
  * Return: jk
  */
 
