@@ -29,6 +29,8 @@ when inserting a node, be sure to **change the parent of the node** that got sho
 
 # Task 3: Delete Tree
 
+## Do Task 4 before Task 3
+
 This assignment assumes you'll be given the root. potentially, a `while (node->parent)` loop containing `node = node->parent` might be prudent, but that is not the focus.
 
 we'll want to go as far down as possible.
