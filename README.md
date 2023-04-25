@@ -71,21 +71,73 @@ I only need to track what my most recent move was
 while (node->left || node->right)
 
         if (node->left)
-
 	{
-
                 node = node->left;
-
-		lastMove = "left";
-
+		lastMove = 'l';
 	}
 
         if (node->right)
 	{
                 node = node->right;
-
-		lastMove = "right";
-
+		lastMove = 'r';
 	}
 
 ```
+
+with this, I know what I did last.
+
+now just append a 
+
+```
+if (!(node->left) && !(node->right))
+```
+for "if I have no children"
+protecting
+```
+node = node->parent;
+switch lastMove
+	case: 'l'
+		free(node->left);
+		break;
+	case: 'r'
+		free(node->right);
+		break;
+```
+so it only deletes the node it just came from
+
+if node had both sides, it'd do 
+
+* enter node->left:lastmove=L
+	* one loop on left child
+	* left had no kids
+* go back to left's parent: node
+	*delete node's lastmove, which is node->left
+* enter node->right: lastmove=R
+	* one loop on right child
+	* right child had both kids
+		*  enter right->left:lastMove=L
+			*right->left had no kids
+		* go back to right via parent (no change to lastMove)
+		* delete right's lastmove, which is Left
+	* repeat on right's right, which happened to make lastMove right
+pretending the order was different for worst case scenario
+	* say we just deleted right's left, leaving lastMove=L
+	* right has no kids
+* go back to right's parent node: node
+* delete node's lastMove, which is *left*. **lastmove cannot know which side it came from if it has depth greater than 2**
+
+----
+
+Instead, lets try directly checking for grandchildren.
+```
+if (!(node->left->left) && !(node->left->right)
+	free(node->left)
+if (!(node->right->left) && !(node->right->right)
+        free(node->right)
+```.
+
+use the code that takes us to the deepest leaf wherever. when we find we have no kids, go to parent, adn then run this.
+
+it'll enter left, find left has no kids, go to left's parent, delete any childless kids. THEN, it's allowed to loop agian to try
+
+				
