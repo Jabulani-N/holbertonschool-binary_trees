@@ -86,7 +86,7 @@ while (node->left || node->right)
 
 with this, I know what I did last.
 
-now just append a 
+now just follow that with 
 
 ```
 if (!(node->left) && !(node->right))
@@ -140,4 +140,11 @@ use the code that takes us to the deepest leaf wherever. when we find we have no
 
 it'll enter left, find left has no kids, go to left's parent, delete any childless kids. THEN, it's allowed to loop agian to try
 
-				
+
+## Ultimately:
+
+* while(node)
+	* node = leaf (the while node->left||node->right loop)
+	* node = leaf->parent
+	* delete leaves (the "checking for grandchildren" pair of if-statments)
+loop repeats until node has deleted root, breaking the containing " while(node)loop
